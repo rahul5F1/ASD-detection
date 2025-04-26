@@ -1,0 +1,74 @@
+body {
+    background: radial-gradient(125% 125% at 50% 20%, #0A0A0A 35%, #2979FF 50%, #FF80AB 60%, #FF6D00 70%, #FFD600 80%, #00E676 90%, #3D5AFE 100%);
+    background-attachment: fixed;
+    color: #e2e2e2;
+}
+
+.glass-effect {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+select,
+input {
+    background-color: rgba(30, 30, 30, 0.8) !important;
+    color: #e2e2e2 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+select:focus,
+input:focus {
+    border-color: #2979FF !important;
+    box-shadow: 0 0 0 2px rgba(41, 121, 255, 0.3) !important;
+}
+
+.form-section {
+    background: rgba(25, 25, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-effect {
+    box-shadow: 0 0 15px rgba(41, 121, 255, 0.5);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #2979FF, #3D5AFE);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #3D5AFE, #2979FF);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(41, 121, 255, 0.5);
+}
+
+.results-container {
+    display: none;
+    background: rgba(25, 25, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.asd-positive {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+.asd-negative {
+    color: #4dff88;
+    text-shadow: 0 0 10px rgba(77, 255, 136, 0.5);
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.data-item {
+    background: rgba(41, 121, 255, 0.1);
+    border: 1px solid rgba(41, 121, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+}

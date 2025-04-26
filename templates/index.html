@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autism Spectrum Disorder Prediction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <header class="glass-effect p-5 shadow-lg">
+        <div class="container mx-auto flex items-center relative">
+            <img src="{{ url_for('static',filename='Tool image.png') }}" alt="Logo" class="w-12 h-12 object-contain absolute left-5">
+            <h1 class="text-3xl font-bold text-white mx-auto">Autism Spectrum Disorder Prediction</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto flex-grow p-4 md:p-6 my-8">
+        <div class="glass-effect rounded-xl p-8 max-w-4xl mx-auto">
+            <h2 class="text-2xl font-semibold text-center text-white mb-8 border-b border-blue-400 pb-4">Welcome to Autism Spectrum
+                Disorder Prediction Tool</h2>
+            <p class="text-gray-300 mb-8 text-center">Please fill the below form</p>
+
+            <form id="asdForm" class="space-y-8" >
+                <div class="form-section p-6 rounded-xl">
+                    <h3 class="font-medium text-blue-300 mb-4 text-xl">Behavioral Indicators (A1-A10)</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
+
+                        <div>
+                            <label for="a1" class="block text-sm font-medium text-gray-300 mb-2">A1</label>
+                            <select id="a1" name="a1"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a2" class="block text-sm font-medium text-gray-300 mb-2">A2</label>
+                            <select id="a2" name="a2"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a3" class="block text-sm font-medium text-gray-300 mb-2">A3</label>
+                            <select id="a3" name="a3"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a4" class="block text-sm font-medium text-gray-300 mb-2">A4</label>
+                            <select id="a4" name="a4"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a5" class="block text-sm font-medium text-gray-300 mb-2">A5</label>
+                            <select id="a5" name="a5"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a6" class="block text-sm font-medium text-gray-300 mb-2">A6</label>
+                            <select id="a6" name="a6"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a7" class="block text-sm font-medium text-gray-300 mb-2">A7</label>
+                            <select id="a7" name="a7"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a8" class="block text-sm font-medium text-gray-300 mb-2">A8</label>
+                            <select id="a8" name="a8"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a9" class="block text-sm font-medium text-gray-300 mb-2">A9</label>
+                            <select id="a9" name="a9"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="a10" class="block text-sm font-medium text-gray-300 mb-2">A10</label>
+                            <select id="a10" name="a10"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section p-6 rounded-xl">
+                    <h3 class="font-medium text-blue-300 mb-4 text-xl">Personal Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div>
+                            <label for="age" class="block text-sm font-medium text-gray-300 mb-2">Age</label>
+                            <input type="number" id="age" name="age" min="0"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
+                        </div>
+                        <div>
+                            <label for="qchart" class="block text-sm font-medium text-gray-300 mb-2">Qchart
+                                Score</label>
+                            <select id="qchart" name="qchart"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section p-6 rounded-xl">
+                    <h3 class="font-medium text-blue-300 mb-4 text-xl">Additional Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-300 mb-2">Gender</label>
+                            <select id="gender" name="gender"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ethnicity"
+                                class="block text-sm font-medium text-gray-300 mb-2">Ethnicity</label>
+                            <select id="ethnicity" name="ethnicity"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Middle Eastern">Middle Eastern</option>
+                                <option value="White European">White European</option>
+                                <option value="Espanic">Espanic</option>
+                                <option value="Black">Black</option>
+                                <option value="Asian">Asian</option>
+                                <option value="South Asian">South Asian</option>
+                                <option value="Native Indian">Native Indian</option>
+                                <option value="Others">Others</option>
+                                <option value="Latino">Latino</option>
+                                <option value="Mixed">Mixed</option>
+                                <option value="Pacifica">Pacifica</option>
+                                <option value="Turkish">Turkish</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="jaundice" class="block text-sm font-medium text-gray-300 mb-2">Jaundice</label>
+                            <select id="jaundice" name="jaundice"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="family_asd" class="block text-sm font-medium text-gray-300 mb-2">Family member
+                                with ASD</label>
+                            <select id="family_asd" name="family_asd"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="test_by" class="block text-sm font-medium text-gray-300 mb-2">Test done
+                                by</label>
+                            <select id="test_by" name="test_by"
+                                class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="Parents">Parents</option>
+                                <option value="Family member">Family member</option>
+                                <option value="Health care professional">Health care professional</option>
+                                <option value="Self">Self</option>
+                                <option value="Relative">Relative</option>
+                                <option value="School and NGO">School and NGO</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="resultsContainer" class="results-container p-6 rounded-xl mt-8">
+                    <h3 class="font-medium text-blue-300 mb-4 text-xl">Results</h3>
+
+                    <div class="mb-6 text-center">
+                        <h4 class="text-lg font-medium mb-2">Diagnosis:</h4>
+                        <p id="diagnosisResult" class="text-2xl font-bold"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="text-lg font-medium mb-3">Submitted Data:</h4>
+                        <div id="formDataDisplay" class="data-grid"></div>
+                    </div>
+                </div>
+
+
+                <div class="flex justify-center mt-10 space-x-4">
+                    <button type="submit"
+                        class="submit-btn text-white font-medium py-3 px-8 rounded-full shadow-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 glow-effect">
+                        Submit
+                    </button>
+                    <button type="button" id="resetBtn"
+                        class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-8 rounded-full shadow-lg text-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="glass-effect p-5 mt-auto">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-300">&copy; 2025 Autism Spectrum Disorder Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static',filename='script.js') }}"></script>
+</body>
+
+</html>
