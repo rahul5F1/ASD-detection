@@ -29,3 +29,6 @@ python app.py
 http://127.0.0.1:5000/
 
 You should see the web form for ASD prediction.
+
+## License
+This project is for educational and research purposes
