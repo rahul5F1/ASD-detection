@@ -7,12 +7,63 @@
     <title>Autism Spectrum Disorder Prediction</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <style>
+        /* Custom tooltip styles */
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background-color: rgba(15, 23, 42, 0.9);
+            color: white;
+            text-align: left;
+            border-radius: 6px;
+            padding: 8px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Arrow for tooltip */
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(15, 23, 42, 0.9) transparent transparent transparent;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tooltip .tooltip-text {
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body class="min-h-screen flex flex-col">
     <header class="glass-effect p-5 shadow-lg">
         <div class="container mx-auto flex items-center relative">
-            <img src="{{ url_for('static',filename='Tool image.png') }}" alt="Logo" class="w-12 h-12 object-contain absolute left-5">
+            <img src="{{ url_for('static',filename='Tool image.png') }}" alt="Logo" class="m-2 w-12 h-12 object-contain">
             <h1 class="text-3xl font-bold text-white mx-auto">Autism Spectrum Disorder Prediction</h1>
         </div>
     </header>
@@ -28,84 +79,94 @@
                     <h3 class="font-medium text-blue-300 mb-4 text-xl">Behavioral Indicators (A1-A10)</h3>
                     <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
 
-                        <div>
+                        <div class="tooltip">
                             <label for="a1" class="block text-sm font-medium text-gray-300 mb-2">A1</label>
+                            <div class="tooltip-text">Does your child look at you when you call his/her name?</div>
                             <select id="a1" name="a1"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a2" class="block text-sm font-medium text-gray-300 mb-2">A2</label>
+                            <div class="tooltip-text">How easy is it for you to get eye contact with your child?</div>
                             <select id="a2" name="a2"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a3" class="block text-sm font-medium text-gray-300 mb-2">A3</label>
+                            <div class="tooltip-text">Does your child point to indicate that s/he wants something? (e.g. a toy that is out of reach)</div>
                             <select id="a3" name="a3"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a4" class="block text-sm font-medium text-gray-300 mb-2">A4</label>
+                            <div class="tooltip-text">Does your child point to share interest with you? (e.g. pointing at an interesting sight)</div>
                             <select id="a4" name="a4"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a5" class="block text-sm font-medium text-gray-300 mb-2">A5</label>
+                            <div class="tooltip-text">Does your child pretend? (e.g. care for dolls, talk on a toy phone)</div>
                             <select id="a5" name="a5"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a6" class="block text-sm font-medium text-gray-300 mb-2">A6</label>
+                            <div class="tooltip-text">Does your child follow where you're looking?</div>
                             <select id="a6" name="a6"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a7" class="block text-sm font-medium text-gray-300 mb-2">A7</label>
+                            <div class="tooltip-text">If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them)</div>
                             <select id="a7" name="a7"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a8" class="block text-sm font-medium text-gray-300 mb-2">A8</label>
+                            <div class="tooltip-text">Would you describe your child's first words as:</div>
                             <select id="a8" name="a8"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a9" class="block text-sm font-medium text-gray-300 mb-2">A9</label>
+                            <div class="tooltip-text">Does your child use simple gestures? (e.g. wave goodbye)</div>
                             <select id="a9" name="a9"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="tooltip">
                             <label for="a10" class="block text-sm font-medium text-gray-300 mb-2">A10</label>
+                            <div class="tooltip-text">Does your child stare at nothing with no apparent purpose?</div>
                             <select id="a10" name="a10"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
                             </select>
                         </div>
                     </div>
@@ -121,7 +182,7 @@
                                 required>
                         </div>
                         <div>
-                            <label for="qchart" class="block text-sm font-medium text-gray-300 mb-2">Qchart
+                            <label for="qchart" class="block text-sm font-medium text-gray-300 mb-2">Qchat
                                 Score</label>
                             <select id="qchart" name="qchart"
                                 class="w-full rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
